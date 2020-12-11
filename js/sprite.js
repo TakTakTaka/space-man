@@ -38,13 +38,31 @@ class Hero extends Circle {
     super(ctx, x, y, dx, dy, radius);
   }
 
+  controls(){
+    /* 
+    38 = up
+    40 = down
+    37 = left
+    39 = right
+    32 = space
+    */
+
+    if(keys === undefined || keys.length === 0) {    
+      this.dx = 0;
+      this.dy = 0;
+    } else {
+      let key = keys.shift();
+      if (key === 38) this.dy = -this.radius;
+      else if (key === 40) this.dy = this.radius;
+      else if (key === 37) this.dx = -this.radius;
+      else if (key === 39) this.dx = this.radius;
+    }
+  }
+  
   update(){
     //use key press for hero
-    if (keys.length > 0) {
-      this.dx = this.radius;
-      this.dy = 0;
-      keys.shift();
-    }
+    this.controls();
+
     if (this.x + this.radius >= this.ctx.canvas.clientWidth || this.x - this.radius < 0) {
       this.dx = 0;
     }
@@ -57,7 +75,6 @@ class Hero extends Circle {
     this.y += this.dy;
 
     this.draw();
-
   }
 }
 
