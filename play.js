@@ -1,7 +1,9 @@
-console.log('cheese')
+import Circle from "./js/sprite";
 
 let canvas = document.getElementById("game-canvas"),
     ctx = canvas.getContext("2d");
+
+  // console.log(ctx)
 
   ctx.beginPath();
 
@@ -10,4 +12,6 @@ let canvas = document.getElementById("game-canvas"),
 
   // Fill Stroke
   ctx.stroke();
+
+let circle1 = new Circle(ctx, 150, 150, 0, 0, 10)
     
