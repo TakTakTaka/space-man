@@ -1,17 +1,13 @@
-import Circle from "./js/sprite";
+// import {Circle} from "./js/sprite.js";
 
 let canvas = document.getElementById("game-canvas"),
-    ctx = canvas.getContext("2d");
+    ctx1 = canvas.getContext("2d");
 
-  // console.log(ctx)
+let dx = Math.random() * 3;
+let dy = Math.random() * 3;
 
-  ctx.beginPath();
+let circle1 = new Circle(ctx1, 300, 300, dx, dy, 30)
 
-  // Arc Operation
-  ctx.arc(50, 50, 30, 0, Math.PI * 2, false);
-
-  // Fill Stroke
-  ctx.stroke();
-
-let circle1 = new Circle(ctx, 150, 150, 0, 0, 10)
+// console.log(ctx1.canvas.clientWidth, ctx1.canvas.clientHeight)
+animate();
     

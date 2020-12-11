@@ -1,4 +1,6 @@
-export default class Circle {
+console.log('loaded Circle Class')
+
+class Circle {
   constructor (ctx, x, y, dx, dy, radius){
     this.x = x;
     this.y = y;
@@ -29,5 +31,10 @@ export default class Circle {
 
     this.draw();
   }
+}
 
+function animate(){
+  requestAnimationFrame(animate);
+  ctx1.clearRect(0, 0, ctx1.canvas.clientWidth, ctx1.canvas.clientHeight);
+  circle1.update();
 }
