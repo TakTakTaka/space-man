@@ -1,0 +1,35 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.header-container {
+  color: #fff;
+  background-color: #5995DA;  /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  /* border: 1px solid #fff;   */
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.content-item {
+  display: flex;
+  border: 1px solid #fff;
+  background-color: #D6E9FE;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
