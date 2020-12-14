@@ -4,7 +4,7 @@ let keys = [];
 
 $(document).ready(function(){
   $(document).keydown((e)=> {
-    console.log(e.which)
+    // console.log(e.which)
     keys.push(e.which);
   });
 });

@@ -30,6 +30,7 @@ class Circle {
   }
 
   update(){
+    if (gameover) return;
     if (this.x + this.radius > this.ctx.canvas.clientWidth || this.x - this.radius < 0) {
       this.dx = -this.dx;
     }
@@ -44,6 +45,24 @@ class Circle {
     this.draw();
     this.collision();
   }
+}
+
+class Bullet extends Circle {
+  constructor(ctx, x, y, dx, dy, radius) {
+    super(ctx, x, y, dx, dy, radius);
+  }
+
+  update() {
+
+    if (gameover) return;
+
+    this.x += this.dx;
+    if (this.x + this.radius > this.ctx.canvas.clientWidth) {
+      this.x = this.ctx.canvas.clientWidth;
+    }
+
+    this.draw();
+  }
 
 }
 
@@ -52,14 +71,7 @@ class Hero extends Circle {
     super(ctx, x, y, dx, dy, radius);
   }
 
-  controls(){
-    /* 
-    38 = up
-    40 = down
-    37 = left
-    39 = right
-    32 = space
-    */
+  controls() {
 
     if(keys === undefined || keys.length === 0) {    
       this.dx = 0;
@@ -69,14 +81,24 @@ class Hero extends Circle {
       //change increment value here
       let increment = this.radius * 2
 
-      if (key === 38) this.dy = -increment;
-      else if (key === 40) this.dy = increment;
-      else if (key === 37) this.dx = -increment;
-      else if (key === 39) this.dx = increment;
-      else if (key === 32) console.log('pew pew');
+      if (key === 38) this.dy = -increment; //up
+      else if (key === 40) this.dy = increment; //down
+      else if (key === 37) this.dx = -increment; //left
+      else if (key === 39) this.dx = increment; //right
+      
+      else if (key === 32) { //space
+        this.shoot();
+        // console.log('pew pew');
+      }
+
     }
   }
   
+  shoot() {
+    let bullet = new Bullet(this.ctx, this.x + this.radius, this.y, 10, 0, 5 );
+    bullets.push(bullet);
+  }
+
   update(){
     //use key press for hero
     this.controls();
@@ -99,6 +121,7 @@ function animate(){
     console.log('game is over');
     return;
   }
+  
   requestAnimationFrame(animate);
   ctx1.clearRect(0, 0, ctx1.canvas.clientWidth, ctx1.canvas.clientHeight);
   
@@ -111,5 +134,10 @@ function animate(){
   } else {
     circle1.update();
   }
-  
+
+  if (bullets.length > 0) {
+    bullets.forEach((bullet) => {
+      bullet.update();
+    })
+  }
 }
