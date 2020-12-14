@@ -25,12 +25,12 @@ class Circle {
     let d = Math.sqrt(Math.pow(this.x - hero.x, 2) + Math.pow(this.y - hero.y, 2));
     if (d <= this.radius + hero.radius) {
       gameover = true;
-      alert('Game is Over!');
+      // alert('Game is Over!');
     }
   }
 
   update(){
-    if (gameover) return;
+    // if (gameover) return;
     if (this.x + this.radius > this.ctx.canvas.clientWidth || this.x - this.radius < 0) {
       this.dx = -this.dx;
     }
@@ -44,6 +44,9 @@ class Circle {
 
     this.draw();
     this.collision();
+    if (gameover) {
+      alert('Game is over');
+    }
   }
 }
 
@@ -52,13 +55,16 @@ class Bullet extends Circle {
     super(ctx, x, y, dx, dy, radius);
   }
 
-  update() {
+  update(idx) {
 
     if (gameover) return;
 
     this.x += this.dx;
     if (this.x + this.radius > this.ctx.canvas.clientWidth) {
-      this.x = this.ctx.canvas.clientWidth;
+      // this.x = this.ctx.canvas.clientWidth;
+      //remove bullet from arr
+      bullets.splice(idx, 1);
+      return;
     }
 
     this.draw();
@@ -136,8 +142,8 @@ function animate(){
   }
 
   if (bullets.length > 0) {
-    bullets.forEach((bullet) => {
-      bullet.update();
+    bullets.forEach((bullet, idx) => {
+      bullet.update(idx);
     })
   }
 }
