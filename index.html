@@ -16,7 +16,10 @@
       <canvas id="game-canvas" width="600" height="400" style="border:1px solid #000000;"></canvas>
       <div class="content-items">
         <div class="content-item content-item3">Content 3</div>
-        <div class="content-item content-item4">Content 4</div>
+        <div class="content-item content-item4">
+          Content 4
+          <button type="button" onclick="reloadPlay()" >Click Me!</button>
+        </div>
       </div>
     </div>
     <div class="footer-container">
@@ -29,6 +32,13 @@
   <script src="js/idleChar.js"></script>
   <script src="js/generate.js"></script>
   <script src="js/keypress.js"></script>
+  <script src="js/reload.js"></script>
+  <script>
+    function reloadPlay() {
+      $.getScript('play.js')
+      }
+  </script>
+
   <script src="play.js"></script>
   
 
