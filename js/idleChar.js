@@ -5,15 +5,29 @@ class IdleChar extends Hero {
     super(ctx, x, y, dx, dy, radius);
 
     this.img = img;
+    this.posture = 2;
+    this.changePosture = this.changePosture.bind(this);
   }
 
-  drawChar(){
-    console.log(`size of image: ${this.img.width} x ${this.img.height}`)
-    
+  changePosture() {
+    if (gameover) return clearInterval(heroPose);
+    let self = this;
+    console.log(`here posture changed: ${this.posture}`)  
+    if(self.posture !== 2) self.posture++;
+      else self.posture = 0;
+  }
+  
+  drawChar(){    
     // canvas.drawImage(img, sx, sy, swidth, sheight, x, y, width, height);
-    let offset = 300;
-    let size = 35;
-    this.ctx.drawImage(this.img, 0 + offset, 0 + offset, 1000 - offset, 1000 - offset, this.x - size/2, this.y - size/2, size, size);
+    //posture at zero
+    let offset = 0;
+    let size = 50;
+    let originX = this.posture * 1000; //1000 x 1000 is img size 
+    let originY = 0;
+    this.ctx.drawImage(this.img, originX + offset, originY + offset, 1000 - offset*2, 1000 - offset*2, this.x - size/2, this.y - size/2, size, size);
+    
+    // this.ctx.drawImage(this.img, 1000, 0, 1000, 1000, this.x - size/2, this.y - size/2, size, size);
+    // this.ctx.drawImage(this.img, 0, 0, 1000 - offset/2, 1000 - offset/2, this.x - size/2, this.y - size/2, size, size);
   }
   
   update(){
@@ -31,9 +45,7 @@ class IdleChar extends Hero {
     this.drawChar();
     this.draw();
 
-  }
-
-  
+  } 
 }
 
 
