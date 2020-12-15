@@ -20,14 +20,23 @@ class IdleChar extends Hero {
   drawChar(){    
     // canvas.drawImage(img, sx, sy, swidth, sheight, x, y, width, height);
     //posture at zero
-    let offset = 0;
-    let size = 50;
-    let originX = this.posture * 1000; //1000 x 1000 is img size 
-    let originY = 0;
-    this.ctx.drawImage(this.img, originX + offset, originY + offset, 1000 - offset*2, 1000 - offset*2, this.x - size/2, this.y - size/2, size, size);
-    
-    // this.ctx.drawImage(this.img, 1000, 0, 1000, 1000, this.x - size/2, this.y - size/2, size, size);
-    // this.ctx.drawImage(this.img, 0, 0, 1000 - offset/2, 1000 - offset/2, this.x - size/2, this.y - size/2, size, size);
+    let cx = 642; //center x and y
+    let cy = 590;
+    let swidth = 675;
+    let sheight = 675;
+
+    if (this.posture === 1){
+      cx = 1500;
+      cy = 712;
+    } else if (this.posture === 2) {
+      cx = 2365;
+      cy = 697;
+    }
+
+    let size = 40; //for width/height
+    let sx = cx - swidth/2; //start x and y calculated from centers
+    let sy = cy - sheight/2
+    this.ctx.drawImage(this.img, sx, sy, swidth, sheight, this.x - size/2, this.y - size/2, size, size);
   }
   
   update(){
