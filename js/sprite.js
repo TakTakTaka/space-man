@@ -167,4 +167,28 @@ function animate(){
       bullet.update(idx);
     })
   }
+
+  //check for collisions between bullets and sprites
+  for (let i = 0; i < sprites.length; i++) {
+    let s = sprites[i];
+    
+    for(let j = 0; j < bullets.length; j++) {
+      let b = bullets[j];
+      let d = Math.sqrt(Math.pow(s.x - b.x, 2) + Math.pow(s.y - b.y, 2));
+      if (d <= s.radius + b.radius) {
+        //bullet collided
+        bullets.splice(j, 1);
+        j--;
+
+        //remove sprite
+        sprites.splice(i, 1);
+        i--;
+
+        //update score
+        gameScore += 900;
+        gameScoreHTML.innerHTML= `Game Score: ${gameScore}`;
+      }
+    }
+  }
+
 }
