@@ -5,16 +5,15 @@ class IdleChar extends Hero {
     super(ctx, x, y, dx, dy, radius);
 
     this.img = img;
-    this.posture = 2;
+    this.posture = 0;
     this.changePosture = this.changePosture.bind(this);
   }
 
   changePosture() {
     if (gameover) return clearInterval(heroPose);
     let self = this;
-    console.log(`here posture changed: ${this.posture}`)  
     if(self.posture !== 2) self.posture++;
-      else self.posture = 0;
+    else self.posture = 0;
   }
   
   drawChar(){    
