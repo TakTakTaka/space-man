@@ -44,8 +44,28 @@ class Circle {
 
     this.draw();
     this.collision();
+    // if (gameover) {
+    //   alert('Game is over');
+    // }
+  }
+}
+
+class Sprite extends Circle {
+  constructor(ctx, x, y, dx, dy, radius) {
+    super(ctx, x, y, dx, dy, radius);
+  } 
+
+  update(idx) {
+    this.x -= this.dx;    
+    if (this.x - this.radius < 0) {
+      sprites.splice(idx, 1);
+      return;
+    }
+
+    this.draw();
+    this.collision();
     if (gameover) {
-      alert('Game is over');
+      // alert('Game is over');
     }
   }
 }
@@ -125,6 +145,7 @@ function animate(){
   
   if (gameover) {
     console.log('game is over');
+    alert('Game Over')
     return;
   }
   
@@ -133,9 +154,9 @@ function animate(){
   
   //update multiple
   hero.update();
-  if (sprites.length > 1) {
-    sprites.forEach((sprite) => {
-      sprite.update();
+  if (sprites.length > 0) {
+    sprites.forEach((sprite, idx) => {
+      sprite.update(idx);
     })
   } else {
     circle1.update();

@@ -16,5 +16,5 @@ let bullets = [];
 
 // console.log(ctx1.canvas.clientWidth, ctx1.canvas.clientHeight)
 let gameover = false;
+generate(500); //control speed of generation (ms)
 animate();
-    
