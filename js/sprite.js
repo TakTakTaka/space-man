@@ -21,7 +21,6 @@ class Circle {
     //calculate distance to hero
     //distance needs to be greater than R (circle) + r (hero);
     
-    // console.log(Math.sqrt(Math.pow(this.x - hero.x,2) - Math.p))
     let d = Math.sqrt(Math.pow(this.x - hero.x, 2) + Math.pow(this.y - hero.y, 2));
     if (d <= this.radius + hero.radius) {
       gameover = true;
@@ -153,7 +152,9 @@ function animate(){
   ctx1.clearRect(0, 0, ctx1.canvas.clientWidth, ctx1.canvas.clientHeight);
   
   //update multiple
-  hero.update();
+  if (idleChar) idleChar.update();
+  // if (hero) hero.update();
+
   if (sprites.length > 0) {
     sprites.forEach((sprite, idx) => {
       sprite.update(idx);
