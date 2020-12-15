@@ -1,3 +1,5 @@
+console.log('play.js file loaded')
+
 let canvas = document.getElementById("game-canvas"),
     ctx1 = canvas.getContext("2d");
 
@@ -6,7 +8,7 @@ let gameover = false;
 //idleChar
 let idleCharImg = new Image();
 // idleCharImg.src = '/Users/takanori.sono/dev/space-man/imgs/hero_char.png';
-idleCharImg.src = '/Users/takanori.sono/dev/space-man/imgs/spaceMan.png';
+idleCharImg.src = './imgs/spaceMan.png';
 let radius = 16
 let idleChar = new IdleChar(ctx1, 10, 200, 0, 0, radius, idleCharImg);
 let hero = idleChar;
