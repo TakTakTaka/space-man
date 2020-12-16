@@ -77,3 +77,8 @@ box-sizing: border-box;
   background-color: #C3EDFA;
   background-color: #C8C6FA
 }
+
+.canvas-bg {
+  background-repeat: repeat;
+  background-image: url("./imgs/tileBg.png");
+}
