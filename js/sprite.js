@@ -52,21 +52,36 @@ class Circle {
 class Sprite extends Circle {
   constructor(ctx, x, y, dx, dy, radius) {
     super(ctx, x, y, dx, dy, radius);
+    this.posture = 0;
   } 
 
+  changePosture() {
+    if (gameover) return clearInterval(this.changePosture);
+    let self = this;
+    if (self.posture !== 2) self.posture++;
+    else self.posture = 0;
+  }
+  
   update(idx) {
     this.x -= this.dx;    
     if (this.x - this.radius < 0) {
       sprites.splice(idx, 1);
       return;
     }
-
-    this.draw();
+    
+    this.drawChar();
+    // this.draw();
     this.collision();
     if (gameover) {
       // alert('Game is over');
     }
   }
+
+  drawChar() {
+    let size = 35; //for width/height
+    this.ctx.drawImage(gameDetails[`alien${gameDetails.alienPosture}`], 0, 0, 208, 208, this.x - size / 2, this.y - size / 2, size, size);
+  }
+
 }
 
 class Bullet extends Circle {
