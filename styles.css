@@ -1,7 +1,31 @@
-* {
+/* * {
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+} */
+
+html {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 0, 0);
+}
+
+h1 {
+  margin: 0;
+}
+
+.container {
+  flex: 1;
+  border: 2px solid blueviolet;
 }
 
 .header-container {
@@ -9,16 +33,9 @@ box-sizing: border-box;
   font-size: 40px;
   color: #fff;
   background-color: #5995DA;  /* Blue */
-  padding: 20px 0;
+  /* padding: 20px 0; */
   display: flex;
   justify-content: center;
-}
-
-.header {
-  /* border: 1px solid #fff;   */
-  width: 900px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .content-container {
@@ -75,6 +92,10 @@ box-sizing: border-box;
   background-color: #5995DA;
 }
 
+.footer-item {
+  padding: 1em;
+}
+
 .colors {
   background-color: #F5CF8E;
   background-color: #F09A9D;
@@ -86,4 +107,8 @@ box-sizing: border-box;
 .canvas-bg {
   background-repeat: repeat;
   background-image: url("./imgs/tileBg3.png");
+}
+
+.icons {
+  font-size: 40px;
 }
