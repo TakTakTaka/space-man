@@ -150,7 +150,7 @@ function animate(){
   
   requestAnimationFrame(animate);
   ctx1.clearRect(0, 0, ctx1.canvas.clientWidth, ctx1.canvas.clientHeight);
-  
+
   //update multiple
   if (idleChar) idleChar.update();
   // if (hero) hero.update();
@@ -187,7 +187,7 @@ function animate(){
 
         //update score
         gameScore += 900;
-        gameScoreHTML.innerHTML= `Game Score: ${gameScore}`;
+        gameScoreHTML.innerHTML= `Game Score:<br>${gameScore}`;
       }
     }
   }
