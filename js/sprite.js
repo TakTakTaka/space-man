@@ -201,7 +201,7 @@ function animate(){
         i--;
 
         //update score
-        gameScore += 900;
+        gameScore += 100;
         gameScoreHTML.innerHTML= `Game Score: ${gameScore}`;
       }
     }
