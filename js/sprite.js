@@ -187,7 +187,7 @@ function animate(){
 
         //update score
         gameScore += 900;
-        gameScoreHTML.innerHTML= `Game Score:<br>${gameScore}`;
+        gameScoreHTML.innerHTML= `Game Score: ${gameScore}`;
       }
     }
   }

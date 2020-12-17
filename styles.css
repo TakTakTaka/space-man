@@ -16,7 +16,8 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(226, 0, 0);
+  /* background: rgb(110, 135, 190); */
+  background: radial-gradient(circle, rgb(106, 171, 245) 0%, rgb(33, 84, 90) 100%);
 }
 
 h1 {
@@ -25,17 +26,25 @@ h1 {
 
 .container {
   flex: 1;
-  border: 2px solid blueviolet;
+  /* border: 2px solid blueviolet; */
+  color: #fff;
 }
 
 .header-container {
   font-family: 'Notable', sans-serif;
   font-size: 40px;
   color: #fff;
-  background-color: #5995DA;  /* Blue */
+  /* background-color: #5995DA;  Blue */
   /* padding: 20px 0; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.header-score {
+  font-size: 14px;
+  
 }
 
 .content-container {
@@ -49,8 +58,8 @@ h1 {
 .content-items {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(255, 0, 0);
-  background-color: #D6E9FE;
+  /* border: 1px solid rgb(255, 0, 0); */
+  /* background-color: #D6E9FE; */
   flex: 1;
   justify-content: center;
   align-items: stretch;
@@ -58,8 +67,8 @@ h1 {
 
 .content-item {
   display: flex;
-  border: 1px solid #fff;
-  background-color: #d6fede;
+  /* border: 1px solid #fff; */
+  /* background-color: #d6fede; */
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -67,29 +76,29 @@ h1 {
 }
 
 .content-item1 {
-  border: 1px solid #fff;
   background-color: #F5CF8E;
 }
 
 .content-item2 {
-  border: 1px solid #fff;
   background-color: #F09A9D;
 }
 
 .content-item3 {
-  border: 1px solid #fff;
   background-color: #C3EDFA;
 }
 
 .content-item4 {
-  border: 1px solid #fff;
   background-color: #C8C6FA;
+}
+
+.content-item {
+  background-color: transparent;
 }
 
 .footer-container {
   display: flex;
   justify-content: center;
-  background-color: #5995DA;
+  /* background-color: #5995DA; */
 }
 
 .footer-item {
@@ -107,8 +116,18 @@ h1 {
 .canvas-bg {
   background-repeat: repeat;
   background-image: url("./imgs/tileBg3.png");
+  border: 2px solid gold;
 }
 
 .icons {
-  font-size: 40px;
+  font-size: 30px;
+  color: black;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: blue;
 }

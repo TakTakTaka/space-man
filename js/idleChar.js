@@ -51,7 +51,7 @@ class IdleChar extends Hero {
     this.y = (y - this.radius >= 0 && y + this.radius <= this.ctx.canvas.clientHeight) ? this.y + this.dy : this.y; 
 
     this.drawChar();
-    this.draw();
+    // this.draw();
 
   } 
 }
